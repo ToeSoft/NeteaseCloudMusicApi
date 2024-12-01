@@ -1,4 +1,4 @@
-use crate::api::{voicelist_list_search, voicelist_search, voicelist_trans, weblog, yunbei};
+use crate::api::{cloud_import, music_first_listen_info, send_album, voicelist_list_search, voicelist_search, voicelist_trans, weblog, yunbei};
 use crate::api::{yunbei_expense, yunbei_info, yunbei_rcmd_song, yunbei_rcmd_song_history};
 use crate::api::{yunbei_receipt, yunbei_sign, yunbei_task_finish, yunbei_tasks, yunbei_tasks_todo};
 use crate::api::{video_timeline_recommend, video_url, vip_growthpoint, vip_growthpoint_details};
@@ -138,6 +138,7 @@ pub fn configure_routes(cfg: &mut web::ServiceConfig) {
         .configure(creator_authinfo_get::configure)
         .configure(cellphone_existence_check::configure)
         .configure(cloud_match::configure)
+        .configure(cloud_import::configure)
 
 
         .configure(daily_signin::configure)
@@ -252,6 +253,7 @@ pub fn configure_routes(cfg: &mut web::ServiceConfig) {
         .configure(mv_sub::configure)
         .configure(mv_sublist::configure)
         .configure(mv_url::configure)
+        .configure(music_first_listen_info::configure)
 
         .configure(nickname_check::configure)
 
@@ -309,6 +311,7 @@ pub fn configure_routes(cfg: &mut web::ServiceConfig) {
         .configure(resource_like::configure)
         
         .configure(scrobble::configure)
+        .configure(send_album::configure)
         .configure(search::configure)
         .configure(search_default::configure)
         .configure(search_hot::configure)
